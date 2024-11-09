@@ -5,18 +5,20 @@
 */
 
 package conversor;
-import java.util.*;
+import javax.swing.JOptionPane;
 
 public class ConversorDeMoedas {
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("Quanto de dinheiro você deseja converter de R$ para U$? ");
-		float reais = scanner.nextFloat();
-		float dollar = (float) (3.45);
+		float cambio = 3.45f;
 		
-		float convRealParaDollar = reais / dollar;
+		String valorStr = JOptionPane.showInputDialog("Informe o valor em reais: ");
 		
-		System.out.print("A conversão do valor de R$ " + reais + " ficou em " + convRealParaDollar);
+		float valorFl = Float.parseFloat(valorStr);
+		
+		float dolar = valorFl / cambio;
+		
+		JOptionPane.showMessageDialog(null, "Seu valor equivalente em dolar é " + dolar);
+		
 	}
 }

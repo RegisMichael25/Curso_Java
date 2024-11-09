@@ -1,9 +1,0 @@
-package aula01_olamundo;
-public class Main{
-	public static void main(String[] arg){
-		int n = 10;
-		
-		System.out.print("O antecessor de " + n + " é: " + (n-1));
-		System.out.print("O sucessor de " + n + " é: " + (n+1));
-	}
-}

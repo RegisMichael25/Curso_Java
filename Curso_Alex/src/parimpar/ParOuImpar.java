@@ -21,5 +21,7 @@ public class ParOuImpar {
 		{
 			System.out.print("Número digitado é impar");
 		}
+		
+		scanner.close();
 	}
 }

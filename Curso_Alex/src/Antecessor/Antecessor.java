@@ -13,6 +13,7 @@ package Antecessor;
 import java.util.*;
 
 public class Antecessor {
+	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
@@ -20,5 +21,8 @@ public class Antecessor {
 		int num = scanner.nextInt();
 		
 		System.out.print("O antecessor de " + num + " é " + (num - 1) + " e o sucessor de " + num + " é " + (num + 1) + ".");
-	}
+	
+		
+		scanner.close();
+	}	
 }

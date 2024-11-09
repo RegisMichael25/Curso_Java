@@ -7,11 +7,11 @@
 	A terça parte de 3.5 é 1.16666
 */
 
-
 package dobroTerca;
 import java.util.Scanner;
 
 public class DobroTerca {
+	
 	public static void main (String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
@@ -23,5 +23,6 @@ public class DobroTerca {
 		
 		System.out.println("O dobro de "+ num + " é " + dobro + ".");
 		System.out.print("O terça parte de "+ num + " é " + tercaParte + ".");
+		scanner.close();
 	}
 }

@@ -8,7 +8,10 @@
 */
 
 package LerNome;
+import java.text.NumberFormat;
 import java.util.*;
+import java.util.Locale;
+
 
 public class LetNome {
 
@@ -21,6 +24,12 @@ public class LetNome {
 		System.out.print("Qual salário de " + nomeFuncionario + "?");
 		float salario = scanner.nextFloat();
 		
-		System.out.print("O colaborador(a) " + nomeFuncionario +" tem o salário de R$" + salario);
+		
+		Locale localeBR = new Locale("pt","BR");
+		NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
+		
+		System.out.printf("O colaborador(a) " + nomeFuncionario +" tem o salário de R$" + dinheiro.format(salario));
+		scanner.close();
 	}
 }
+
