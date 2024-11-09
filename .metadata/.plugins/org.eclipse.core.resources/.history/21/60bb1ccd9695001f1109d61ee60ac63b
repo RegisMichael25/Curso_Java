@@ -1,0 +1,9 @@
+package aula01_olamundo;
+public class Main{
+	public static void main(String[] arg){
+		int n = 10;
+		
+		
+				
+	}
+}

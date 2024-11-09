@@ -1,0 +1,26 @@
+package aula01_olamundo;
+import java.util.Scanner;
+/**
+ * Classe para olamundo
+ * 
+ * @author Regis Michael
+ */
+public class Main {
+
+	/*
+	 * Metodo que inicializa o programa,
+	 * Deve existir somentet 1 com essa assinatura.
+	 * */
+	
+	public static void main(String[] args) {
+		// Comando para exibir no console.
+		// System.out.print("Olá, mundo");
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("Informe um número");
+		int num1 = scanner.nextInt();
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+package LerNome;
+import java.util.*;
+
+public class LetNome {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Qual nome do funcionario? ");
+		String nomeFuncionario = scanner.nextLine();
+		
+		System.out.print("Qual salario de " + nomeFuncionario + "?");
+		float salario = scanner.nextFloat();
+		
+		System.out.print("O colaborador(a) " + nomeFuncionario +" tem o salario de R$" + salario);
+	}
+}

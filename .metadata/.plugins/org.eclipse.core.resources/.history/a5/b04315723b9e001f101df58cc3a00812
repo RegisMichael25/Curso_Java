@@ -1,0 +1,9 @@
+package Antecessor;
+
+public class Antecessor {
+	public static void main(String[] args) {
+		int num = 10;
+		
+		System.out.print("O antecessor de " + num + " é " + (num - 1) + " o sucessor de " + num + " é " + (num + 1) + ".");
+	}
+}

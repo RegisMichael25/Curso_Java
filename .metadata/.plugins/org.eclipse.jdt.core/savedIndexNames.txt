@@ -1,0 +1,7 @@
+INDEX VERSION 1.134+C:\Users\Regis Estudos\eclipse-workspace\.metadata\.plugins\org.eclipse.jdt.core
+1287123564.index
+1865797976.index
+2665602384.index
+1189403979.index
+3691107715.index
+2193561096.index
