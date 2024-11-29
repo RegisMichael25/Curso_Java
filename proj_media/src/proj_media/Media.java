@@ -25,6 +25,7 @@ public class Media{
             verificarNota(nota1);
         }
         
+        nota1 = notaDigitadaEstaCorreta(nota1, nomeAluno);
         //------------------------------------------------------------------------------
         
         JOptionPane.showMessageDialog(null, "Show! Agora informe a segunda nota: ");
@@ -36,6 +37,7 @@ public class Media{
         	verificarNota(nota2);
         }
         
+        nota2 = notaDigitadaEstaCorreta(nota2, nomeAluno);
         //------------------------------------------------------------------------------
         
         JOptionPane.showMessageDialog(null, "Maravilha, vamos para a terceira nota do(a) aluno(a) " + nomeAluno);
@@ -47,6 +49,7 @@ public class Media{
         	verificarNota(nota3);
         }
         
+        nota3 = notaDigitadaEstaCorreta(nota3, nomeAluno);
       //------------------------------------------------------------------------------
         
         JOptionPane.showMessageDialog(null, "Pronto, agora só falta a quarta nota: ");
@@ -58,12 +61,17 @@ public class Media{
         	verificarNota(nota4);
         }
         
+       
+        nota4 = notaDigitadaEstaCorreta(nota4, nomeAluno);
+        
+        JOptionPane.showMessageDialog(null, "As notas de " + nomeAluno + " foram " + nota1 + ", " + nota2 + ", " + nota3 + ", " + nota4 + ".");
+        
         float media = calcMedia(nota1, nota2, nota3, nota4);
+       //------------------------------------------------------------------------------        
         
         resultado(nomeAluno, media, aprovadoOuReprovado(media));
-        
       }
-        
+    
       //------------------------------------------------------------------------------
         
     public static float verificarNota(float nota) {
@@ -93,11 +101,11 @@ public class Media{
     	{
     		aprovadoReprovado = "reprovado";
     	}
-    	else if (media >= 5 || media < 7)
+    	else if (media >= 5 && media < 7)
     	{
     		aprovadoReprovado = "de recuperação";
     	}
-    	else if(media >= 7 || media <= 10)
+    	else if(media >= 7 && media <= 10)
     	{
     		aprovadoReprovado = "aprovado";
     	}
@@ -108,4 +116,30 @@ public class Media{
     public static void resultado(String nome, float media, String aprovadoReprovado) {
     	JOptionPane.showMessageDialog(null,"O aluno(a) " + nome + " teve a média " + media + " e está " + aprovadoReprovado);
     }
+    
+    public static float notaDigitadaEstaCorreta(float nota, String nomeAluno)
+    {
+    	float notaConfirm = 0;
+    	int confirmar = JOptionPane.showConfirmDialog(null, "A nota do Aluno " + nomeAluno + " foi digitada corretamente? ");
+    	
+        if(confirmar == 0) 
+        {
+        	 JOptionPane.showMessageDialog(null, "Tudo bem, vamos continuar");
+        	 notaConfirm = nota;
+        }
+        else if(confirmar == 1)
+        {        	
+        	String notaConfirmStr = JOptionPane.showInputDialog(null,"Certo, digite novamente a nota do aluno: ");
+        	nota = Float.parseFloat(notaConfirmStr);
+        	notaConfirm = verificarNota(nota);
+        }
+        else if(confirmar == 2)
+        {
+        	JOptionPane.showMessageDialog(null, "Certo, vamos continuar!");
+        }
+		
+		return notaConfirm;
+
+    }
+
 }

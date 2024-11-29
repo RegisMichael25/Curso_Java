@@ -1,9 +1,0 @@
-package dobroTerca;
-
-import java.util.Scanner;
-
-public class dobroTerca {
-	public static void main (String[] args) {
-		Scanner scanner = new Scanner(System.in);
-	}
-}
