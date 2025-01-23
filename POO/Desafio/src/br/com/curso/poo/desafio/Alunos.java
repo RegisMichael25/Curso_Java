@@ -56,8 +56,11 @@ public class Alunos {
 
 	@Override
 	public String toString() {
-		return "Alunos [matricula=" + matricula + ", nome=" + nome + ", serieAluno=" + serieAluno + ", possuiLivro="
-				+ possuiLivro + ", limiteDeLivros=" + limiteDeLivros + "]";
+		return "Matricula Aluno:\n" + matricula + 
+		"\nNome do Aluno:\n" + nome + 
+		"\nSerie Aluno: \n" + serieAluno + 
+		"\nPossui Livro: \n" + possuiLivro + 
+		"\nLimite De Livros: \n" + limiteDeLivros;
 	}
 
 }

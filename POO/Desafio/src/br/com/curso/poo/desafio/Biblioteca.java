@@ -5,7 +5,7 @@ public class Biblioteca {
 	private String titulo;
 	private String autor;
 	private String genero;
-	private int qntDoLivro = 1;
+	
 	
 	public Biblioteca(int identificador, String titulo, String autor, String genero) {
 		this.identificador = identificador;
@@ -45,14 +45,12 @@ public class Biblioteca {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-
-	public int getQntDoLivro() {
-		return qntDoLivro;
-	}
-
-	public void setQntDoLivro(int qntDoLivro) {
-		this.qntDoLivro = qntDoLivro;
-	}
-
 	
+	@Override
+	public String toString() {
+		return "Identificador do livro: " + identificador + 
+				"\nTitulo do livro: " + titulo + 
+				"\nAutor do livro: " + autor + 
+				"\nGenero do livro: " + genero;
+	}
 }
