@@ -6,8 +6,8 @@ public class Emprestimo {
 	private String livro;
 	
 	public Emprestimo(String aluno, String livro) {
-		this.setAluno(aluno);
-		this.setLivro(livro);
+		this.aluno = aluno;
+		this.livro = livro;
 	}
 
 	public String getAluno() {

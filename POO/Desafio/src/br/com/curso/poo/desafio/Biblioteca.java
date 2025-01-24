@@ -5,7 +5,7 @@ public class Biblioteca {
 	private String titulo;
 	private String autor;
 	private String genero;
-	
+	private int quantidade = 1;
 	
 	public Biblioteca(int identificador, String titulo, String autor, String genero) {
 		this.identificador = identificador;
@@ -45,7 +45,15 @@ public class Biblioteca {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
 	@Override
 	public String toString() {
 		return "Identificador do livro: " + identificador + 

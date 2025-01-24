@@ -5,10 +5,10 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 
 public class Main {
-	static String resp = "s";
-	// static int matricula = 1000;
-	// static Set<Alunos> alunos = new HashSet<>();
-	static Set<Biblioteca> livro = new HashSet<>();
+//	static String resp = "s";
+	static int matricula = 1000;
+	static Set<Alunos> alunos = new HashSet<>();
+	static Set<Biblioteca> livros = new HashSet<>();
 	public static void main(String[] args) {
 			//inserirAluno();
 			// mostrarAlunos();
@@ -16,12 +16,12 @@ public class Main {
 			// mostrarAlunos();
 			// removerAluno(JOptionPane.showInputDialog("Qual nome do aluno que deseja remover? "));
 			// mostrarAlunos();
-			inserirLivro();
-			mostrarLivros();
-			editarLivro(JOptionPane.showInputDialog("Qual nome do livro que deseja editar? "));
-			mostrarLivros();
-			removerLivro(JOptionPane.showInputDialog("Qual nome do livro que deseja remover? "));
-			mostrarLivros();
+//			inserirLivro();
+//			mostrarLivros();
+//			editarLivro(JOptionPane.showInputDialog("Qual nome do livro que deseja editar? "));
+//			mostrarLivros();
+//			removerLivro(JOptionPane.showInputDialog("Qual nome do livro que deseja remover? "));
+//			mostrarLivros();
 
 		}
 
@@ -87,62 +87,86 @@ public class Main {
 
 	//Livros
 	
-	public static void inserirLivro() {
-		byte identificador = 0;
-		while(!resp.equals("n")) {
-			String titulo = JOptionPane.showInputDialog("Qual titulo do livro? ");
-			String autor = JOptionPane.showInputDialog("Qual o autor do livro? ");
-			String genero = JOptionPane.showInputDialog("Qual o genero do livro? ");
-			
-			livro.add(new Biblioteca(identificador++,titulo, autor, genero));
-			resp = JOptionPane.showInputDialog("Deseja continuar adicionando livros? (s/n)").toLowerCase();
-		}
-	}
+//	public static void inserirLivro() {
+//		byte identificador = 0;
+//		while(!resp.equals("n")) {
+//			String titulo = JOptionPane.showInputDialog("Qual titulo do livro? ");
+//			String autor = JOptionPane.showInputDialog("Qual o autor do livro? ");
+//			String genero = JOptionPane.showInputDialog("Qual o genero do livro? ");
+//
+//			livros.add(new Biblioteca(identificador++,titulo, autor, genero));
+//			resp = JOptionPane.showInputDialog("Deseja continuar adicionando livros? (s/n)").toLowerCase();
+//		}
+//	}
+//
+//	public static void editarLivro(String nomeLivro){
+//		for(Biblioteca livro:livros) {
+//			if(livro.getTitulo().equalsIgnoreCase(nomeLivro)) {
+//				System.out.println("Editar livro: " + livro.getTitulo());
+//	            String novoTitulo = JOptionPane.showInputDialog("Novo titulo do livro: ");
+//	            String novoAutor = JOptionPane.showInputDialog("Novo autor do livro: ");
+//	            String novoGenero = JOptionPane.showInputDialog("Novo genero do livro: ");
+//	            String novoIdentificador = JOptionPane.showInputDialog("Novo identificador do livro: ");
+//
+//				livro.setIdentificador(Integer.parseInt(novoIdentificador));
+//	            livro.setTitulo(novoTitulo);
+//	            livro.setAutor(novoAutor);
+//	            livro.setGenero(novoGenero);
+//
+//	            JOptionPane.showMessageDialog(null, "Livro atualizado com sucesso!");
+//	            return;
+//			}
+//		}
+//		JOptionPane.showMessageDialog(null, "Livro não encontrado.");
+//	}
+//
+//	public static void removerLivro(String nomeLivro) {
+//		Biblioteca buscaLivro = null;
+//
+//		for(Biblioteca livro:livros) {
+//			if(livro.getTitulo().equalsIgnoreCase(nomeLivro)) {
+//	            buscaLivro = livro;
+//	            break;
+//			}
+//		}
+//
+//		if(buscaLivro != null) {
+//			System.out.println("Removendo livro: " + buscaLivro.getTitulo());
+//			livros.remove(buscaLivro);
+//			JOptionPane.showMessageDialog(null, "Livro removido com sucesso!");
+//		} else {
+//			JOptionPane.showMessageDialog(null, "Livro não encontrado.");
+//		}
+//	}
+//
+//	public static void mostrarLivros() {
+//		System.out.println("Livros cadastrados: ");
+//		for(Biblioteca livro : livros) {
+//			System.out.println(livro);
+//		}
+//	}
 
-	public static void editarLivro(String nomeLivro){
-		for(Biblioteca livro:livro) {
-			if(livro.getTitulo().equalsIgnoreCase(nomeLivro)) {
-				System.out.println("Editar livro: " + livro.getTitulo());
-	            String novoTitulo = JOptionPane.showInputDialog("Novo titulo do livro: ");
-	            String novoAutor = JOptionPane.showInputDialog("Novo autor do livro: ");
-	            String novoGenero = JOptionPane.showInputDialog("Novo genero do livro: ");
-	            String novoIdentificador = JOptionPane.showInputDialog("Novo identificador do livro: ");
+	// Emprestimo
 
-				livro.setIdentificador(Integer.parseInt(novoIdentificador));
-	            livro.setTitulo(novoTitulo);
-	            livro.setAutor(novoAutor);
-	            livro.setGenero(novoGenero);
-
-	            JOptionPane.showMessageDialog(null, "Livro atualizado com sucesso!");
-	            return;
+	public static String escolherLivro(String aluno) {
+		String livroEscolhido = JOptionPane.showInputDialog("Informe qual livro o aluno " + aluno + "vai pegar.");
+		for(Biblioteca livro:livros){
+			if(livro.getTitulo().equalsIgnoreCase(livroEscolhido)){
+				if(verificaSeOLivroJaFoiEscolhido(livro.getQuantidade())){
+					livro.setQuantidade(livro.getQuantidade() - 1);
+				} else {
+					return "Livro já foi escolhido!";
+				}
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Livro não encontrado.");
+		return "Livro escolhido com sucesso!";
 	}
 
-	public static void removerLivro(String nomeLivro) {
-		Biblioteca buscaLivro = null;
-		
-		for(Biblioteca livro:livro) {
-			if(livro.getTitulo().equalsIgnoreCase(nomeLivro)) {
-	            buscaLivro = livro;
-	            break;
-			}	
-		}
-		
-		if(buscaLivro != null) {
-			System.out.println("Removendo livro: " + buscaLivro.getTitulo());
-			livro.remove(buscaLivro);
-			JOptionPane.showMessageDialog(null, "Livro removido com sucesso!");
+	public static boolean verificaSeOLivroJaFoiEscolhido(int quantidade) {
+		if(quantidade > 0){
+			return true;
 		} else {
-			JOptionPane.showMessageDialog(null, "Livro não encontrado.");
-		}
-	}
-
-	public static void mostrarLivros() {
-		System.out.println("Livros cadastrados: ");
-		for(Biblioteca livro : livro) {
-			System.out.println(livro);
+			return false;
 		}
 	}
 }
