@@ -2,6 +2,11 @@ package br.com.curso.poo.desafio;
 
 public class Emprestimo {
 
+	@Override
+	public String toString() {
+		return "\n Aluno que pegou o livro: \n" + aluno + "\n Livro Emprestado: \n" + livro;
+	}
+
 	private String aluno;
 	private String livro;
 	

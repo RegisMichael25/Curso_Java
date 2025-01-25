@@ -56,7 +56,7 @@ public class Biblioteca {
 
 	@Override
 	public String toString() {
-		return "Identificador do livro: " + identificador + 
+		return "\n Identificador do livro: " + identificador + 
 				"\nTitulo do livro: " + titulo + 
 				"\nAutor do livro: " + autor + 
 				"\nGenero do livro: " + genero;

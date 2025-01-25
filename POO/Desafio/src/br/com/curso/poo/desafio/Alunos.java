@@ -6,8 +6,17 @@ public class Alunos {
 	private String serieAluno;
 	private boolean possuiLivro = false;
 	private int limiteDeLivros = 1;
+	private String livroEmprestado;
 	
 	
+	public String getLivroEmprestado() {
+		return livroEmprestado;
+	}
+
+	public void setLivroEmprestado(String livroEmprestado) {
+		this.livroEmprestado = livroEmprestado;
+	}
+
 	public Alunos(int matricula, String nome, String serieAluno) {
 		this.setMatricula(matricula);
 		this.setNome(nome);
@@ -56,11 +65,11 @@ public class Alunos {
 
 	@Override
 	public String toString() {
-		return "Matricula Aluno:\n" + matricula + 
-		"\nNome do Aluno:\n" + nome + 
-		"\nSerie Aluno: \n" + serieAluno + 
-		"\nPossui Livro: \n" + possuiLivro + 
-		"\nLimite De Livros: \n" + limiteDeLivros;
+		return "\n Matricula Aluno:" + matricula + 
+		"\nNome do Aluno:" + nome + 
+		"\nSerie Aluno:" + serieAluno + 
+		"\nPossui Livro:" + possuiLivro + 
+		"\nLimite De Livros:" + limiteDeLivros;
 	}
 
 }
